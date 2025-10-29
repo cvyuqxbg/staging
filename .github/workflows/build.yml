@@ -61,5 +61,5 @@ jobs:
     - name: Build nix packages
       run: |
         nix run nixpkgs#nix-fast-build -- \
-          --no-nom --skip-cached \
+          --no-nom --skip-cached --max-jobs 1 \
           -f .#packages
