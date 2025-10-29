@@ -61,11 +61,16 @@
             pkgs = import inputs.nixpkgs {
               inherit system;
               config.allowUnfree = true;
-              overlays = [
-                inputs.jovian.overlays.default
-                inputs.chaotic.overlays.default
-                inputs.emacs-overlay.overlays.package
-              ];
+              overlays = (
+                [
+                  inputs.jovian.overlays.default
+                  inputs.chaotic.overlays.default
+                  inputs.emacs-overlay.overlays.package
+                ]
+                ++ lib.optionals (pkgs.stdenv.isDarwin) [
+                  inputs.darwin-emacs.overlay
+                ]
+              );
             };
             lib = inputs.nixpkgs.lib;
             epkgs = pkgs.emacsPackagesFor pkgs.emacs-unstable;
