@@ -67,8 +67,8 @@
                   inputs.chaotic.overlays.default
                   inputs.emacs-overlay.overlays.package
                 ]
-                ++ lib.optionals (pkgs.stdenv.isDarwin) [
-                  inputs.darwin-emacs.overlay
+                ++ lib.optionals (system == "aarch64-darwin") [
+                  inputs.darwin-emacs.overlays.default
                 ]
               );
             };
