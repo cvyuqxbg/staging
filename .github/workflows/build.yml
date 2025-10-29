@@ -1,0 +1,65 @@
+name: "Build and populate cache"
+on:
+  schedule:
+    - cron: '44 */6 * * *'
+  pull_request:
+  push:
+    branches:
+      - main
+      - master
+  workflow_dispatch:
+jobs:
+  tests:
+    strategy:
+      fail-fast: false
+      matrix:
+        os:
+          - ubuntu-24.04
+          - ubuntu-24.04-arm
+          - macos-15
+        cachixName:
+          - staging
+        nixPath:
+          - nixpkgs=https://github.com/NixOS/nixpkgs/archive/refs/heads/nixos-unstable.tar.gz
+    runs-on: "${{ matrix.os }}"
+    steps:
+    - name: Maximize build space
+      if: runner.os == 'Linux'
+      uses: mio-19/maximize-build-space@patch-1
+      with:
+        root-reserve-mb: 512
+        swap-size-mb: 42000
+        overprovision-lvm: 'true'
+        remove-dotnet: 'true'
+        remove-android: 'true'
+        remove-haskell: 'true'
+        remove-codeql: 'true'
+        remove-docker-images: 'true'
+        build-mount-path: /nix
+    - run: sudo sysctl kernel.apparmor_restrict_unprivileged_userns=0
+      if: runner.os == 'Linux'
+    - name: Checkout repository
+      uses: actions/checkout@v5
+    - name: Install nix
+      uses: cachix/install-nix-action@v31
+      with:
+        nix_path: "${{ matrix.nixPath }}"
+        extra_nix_config: |
+          experimental-features = nix-command flakes
+          access-tokens = github.com=${{ secrets.GITHUB_TOKEN }}
+          trusted-public-keys = cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY= mio.cachix.org-1:FlupyyLPURqwdRqtPT/LBWKsXY7JKsDkzZQo2K6LeMM= mio-cache.cachix.org-1:ouuIJZ59HIflYjpLW6DRyMc1c+6r3kC/LHuqGUsWigg= nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs= chaotic-nyx.cachix.org-1:HfnXSw4pj95iI/n17rIDy40agHj12WfF+Gqk6SonIT8= staging.cachix.org-1:WX63nyFdVdWGn6n59pIYwkcH/AtjJGjvMQFKlI2z00w=
+          substituters = https://mio.cachix.org/ https://mio-cache.cachix.org/ https://nix-community.cachix.org/ https://chaotic-nyx.cachix.org/ https://cache.nixos.org/ https://staging.cachix.org/
+    - name: Setup cachix
+      uses: cachix/cachix-action@v16
+      # Don't replace <YOUR_CACHIX_NAME> here!
+      if: ${{ matrix.cachixName != '<YOUR_CACHIX_NAME>' }}
+      with:
+        name: ${{ matrix.cachixName }}
+        signingKey: '${{ secrets.CACHIX_SIGNING_KEY }}'
+        authToken: '${{ secrets.CACHIX_AUTH_TOKEN }}'
+    # https://github.com/nix-community/nixos-apple-silicon/blob/7aad69158fc1b5bbbddac19040b6aae14daaa35c/.github/workflows/cache.yml#L45C56-L50C24
+    - name: Build nix packages
+      run: |
+        nix run nixpkgs#nix-fast-build -- \
+          --no-nom --skip-cached \
+          -f .#packages
