@@ -9,11 +9,11 @@
         "rust-overlay": "rust-overlay"
       },
       "locked": {
-        "lastModified": 1761824945,
-        "narHash": "sha256-ILKM8DImm7zysUTGFYU0ETORmeutQDbTrwi+3RXi3fM=",
+        "lastModified": 1761827347,
+        "narHash": "sha256-tIrTFSntAyXVrQE9GnauXzQxEZJCZA9TEp4jAENsgwA=",
         "ref": "nyxpkgs-unstable",
-        "rev": "a10b961b4b999c3f3406c0214383456ad83be86c",
-        "revCount": 2420,
+        "rev": "0c234b99a8606b482d6644e1f2d26d41985fb85c",
+        "revCount": 2423,
         "type": "git",
         "url": "https://github.com/chaotic-cx/nyx.git"
       },
@@ -404,11 +404,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1761827929,
-        "narHash": "sha256-2BHWJVMfXldDT0VdERw6AFIi+r5BdagCMu540JFAhwM=",
+        "lastModified": 1761830331,
+        "narHash": "sha256-xr/SxzmaAgsLA7kPqOSrGsccmwyWIMXMdyagh29cGv4=",
         "owner": "nix-community",
         "repo": "NUR",
-        "rev": "5002d3f77713afcfad2d891098c23f8d92fe19bf",
+        "rev": "13cfbc86e1f1304edc92d0cdfd0743f05e522de6",
         "type": "github"
       },
       "original": {
