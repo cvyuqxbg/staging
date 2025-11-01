@@ -94,7 +94,7 @@
               })
               {
                 inherit (pkgs) musescore;
-                inherit (pkgs) sbcl;
+                #inherit (pkgs) sbcl;
                 inherit (pkgs.emacs.pkgs) magit nix-mode agda2-mode;
               }
               (lib.mkIf (pkgs.stdenv.isLinux) {
