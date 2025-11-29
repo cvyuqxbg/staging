@@ -39,17 +39,13 @@
               config.allowUnfree = true;
               overlays = (
                 [
-                  inputs.jovian.overlays.default
                   inputs.chaotic.overlays.default
-                  inputs.emacs-overlay.overlays.package
                 ]
                 ++ lib.optionals (system == "aarch64-darwin") [
-                  inputs.darwin-emacs.overlays.default
                 ]
               );
             };
             lib = inputs.nixpkgs.lib;
-            epkgs = pkgs.emacsPackagesFor pkgs.emacs-unstable;
           in
           {
             packages = lib.mkMerge [
