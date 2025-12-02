@@ -54,7 +54,7 @@
               {
               }
               (lib.mkIf (system == "x86_64-linux") {
-                inherit (pkgs.pkgsx86_64_v3) mpv;
+                inherit (pkgs.pkgsx86_64_v3) zotero localsend;
               })
             ];
           };
