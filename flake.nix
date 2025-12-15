@@ -1,7 +1,7 @@
 {
   inputs = {
     nixpkgs.follows = "chaotic/nixpkgs";
-    chaotic.url = "git+https://github.com/chaotic-cx/nyx.git?ref=nyxpkgs-unstable";
+    chaotic.url = "git+https://github.com/lonerOrz/nyx-loner.git";
   };
 
   outputs =
