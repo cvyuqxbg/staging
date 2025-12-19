@@ -57,7 +57,7 @@
               {
               }
               (lib.mkIf (system == "x86_64-linux") {
-                inherit (pkgs.pkgsx86_64_v3) zotero localsend zulip;
+                inherit (pkgs.pkgsx86_64_v3) zotero localsend zulip gtk3 gtk3;
               })
             ];
           };
