@@ -3,6 +3,8 @@
     #nixpkgs.follows = "chaotic/nixpkgs";
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     chaotic.url = "git+https://github.com/lonerOrz/nyx-loner.git";
+    # bad for cache:
+    chaotic.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs =
