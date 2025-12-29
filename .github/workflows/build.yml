@@ -77,5 +77,5 @@ jobs:
     - name: Build nix packages
       run: |
         nix run nixpkgs#nix-fast-build -- --max-jobs 1 \
-          --no-nom --skip-cached \
+          --no-nom \
           -f .#packages.${{ env.SYSTEM }}
