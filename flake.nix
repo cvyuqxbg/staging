@@ -67,6 +67,7 @@
                       nano
                       dbus
                       kdePackages.sddm
+                      nix
                     ];
                   }
                 );
