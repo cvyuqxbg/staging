@@ -66,7 +66,8 @@
                       tmux
                       nano
                       dbus
-                      kdePackages.sddm
+                      pipewire
+                      openssh
                       nix
                     ];
                   }
