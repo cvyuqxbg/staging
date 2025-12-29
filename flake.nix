@@ -57,6 +57,19 @@
               {
               }
               (lib.mkIf (system == "x86_64-linux") {
+                v3ssss = (
+                  pkgs.symlinkJoin {
+                    name = "v3ssss";
+                    # cache dependencies for those packages:
+                    paths = with pkgs.pkgsx86_64_v3; [
+                      systemd
+                      tmux
+                      nano
+                      dbus
+                      kdePackages.sddm
+                    ];
+                  }
+                );
                 inherit (pkgs.pkgsx86_64_v3) zotero localsend zulip gtk3;
               })
             ];
