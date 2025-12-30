@@ -77,7 +77,7 @@
                       pipewire
                       openssh
                       nix
-                      kdePackages.kdeconnect-kde
+                      #kdePackages.kdeconnect-kde
                     ];
                   }
                 );
@@ -93,7 +93,7 @@
                       pipewire
                       openssh
                       nix
-                      kdePackages.kdeconnect-kde
+                      #kdePackages.kdeconnect-kde
                     ];
                   }
                 );
