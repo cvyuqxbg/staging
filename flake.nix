@@ -48,6 +48,14 @@
                 ]
               );
             };
+            pkgs-cuda = import inputs.nixpkgs {
+              inherit system;
+              config.allowUnfree = true;
+              config.cudaSupport = true;
+              overlays = ([
+                inputs.chaotic.overlays.default
+              ]);
+            };
             lib = inputs.nixpkgs.lib;
           in
           {
@@ -62,6 +70,22 @@
                     name = "v3ssss";
                     # cache dependencies for those packages:
                     paths = with pkgs.pkgsx86_64_v3; [
+                      systemd
+                      tmux
+                      nano
+                      dbus
+                      pipewire
+                      openssh
+                      nix
+                      kdePackages.kdeconnect-kde
+                    ];
+                  }
+                );
+                v3sssscuda = (
+                  pkgs-cuda.symlinkJoin {
+                    name = "v3sssscuda";
+                    # cache dependencies for those packages:
+                    paths = with pkgs-cuda.pkgsx86_64_v3; [
                       systemd
                       tmux
                       nano
