@@ -11,11 +11,11 @@
         "rust-overlay": "rust-overlay"
       },
       "locked": {
-        "lastModified": 1771866074,
-        "narHash": "sha256-UQKgQKVn4N0BhyOd0RA6I5l1dhtv0a0QbZ9sd54HDFw=",
+        "lastModified": 1771954629,
+        "narHash": "sha256-qCcYn0siCBIm3NDulvEdeinK6S7wMw4pUv/Se+tBsLg=",
         "ref": "refs/heads/main",
-        "rev": "aabf2e6a92b5176a8d345047f626c5575cf45e76",
-        "revCount": 3568,
+        "rev": "d8ce6132be3b8ba524fcfe7aff06028b3f303abc",
+        "revCount": 3585,
         "type": "git",
         "url": "https://github.com/lonerOrz/nyx-loner.git"
       },
@@ -167,11 +167,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1771816254,
-        "narHash": "sha256-vkp3iTF6QmHMvL+34DI93IiMPjS2lqcMlA1fl7nXVsQ=",
+        "lastModified": 1771902481,
+        "narHash": "sha256-svI5ivzggtu4KhCdoab3xR5+Btop24o7yLFtIPXrsPM=",
         "owner": "oxalica",
         "repo": "rust-overlay",
-        "rev": "085bdbf5dde5477538e4c87d1684b6c6df56c0ad",
+        "rev": "5177426d9f8f7f1827001c9749b9a9c5570d456b",
         "type": "github"
       },
       "original": {
