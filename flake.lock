@@ -11,11 +11,11 @@
         "rust-overlay": "rust-overlay"
       },
       "locked": {
-        "lastModified": 1773773093,
-        "narHash": "sha256-lTWIfTmayd/vdGHi4OqNbiVIkTO2DAQ8mgTaJpc7GTE=",
+        "lastModified": 1773853861,
+        "narHash": "sha256-JQnS+DQkWHJPXcsC1zOKXeEAscXxPBAyinuMWnmLldI=",
         "ref": "refs/heads/main",
-        "rev": "676c0899b7847a41e0bd844753c903f142f395c1",
-        "revCount": 3968,
+        "rev": "e05123f970a695d97d4948c44a616d059fad335d",
+        "revCount": 3987,
         "type": "git",
         "url": "https://github.com/lonerOrz/nyx-loner.git"
       },
@@ -63,11 +63,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1773681856,
-        "narHash": "sha256-+bRqxoFCJFO9ZTFhcCkzNXbDT3b8AEk88fyjB7Is6eo=",
+        "lastModified": 1773810247,
+        "narHash": "sha256-6Vz1Thy/1s7z+Rq5OfkWOBAdV4eD+OrvDs10yH6xJzQ=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "57d5560ee92a424fb71fde800acd6ed2c725dfce",
+        "rev": "d47357a4c806d18a3e853ad2699eaec3c01622e7",
         "type": "github"
       },
       "original": {
@@ -85,11 +85,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1773734427,
-        "narHash": "sha256-++kBv60TZhErAx0gHW+JbMPcrHTZNyvtqTfwyR+mZCU=",
+        "lastModified": 1773818560,
+        "narHash": "sha256-WG+bDq0UenMRtbSZsMN/d9xVlpqZ1nVcfl5tflbbRu4=",
         "owner": "Jovian-Experiments",
         "repo": "Jovian-NixOS",
-        "rev": "b67d0b7850a4ee02c92e4917dc88b9018adfce97",
+        "rev": "8314448191245c39cee6e380200f2ec281862332",
         "type": "github"
       },
       "original": {
@@ -167,11 +167,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1773716879,
-        "narHash": "sha256-vXCTasEzzTTd0ZGEuyle20H2hjRom66JeNr7i2ktHD0=",
+        "lastModified": 1773803479,
+        "narHash": "sha256-GD6i1F2vrSxbsmbS92+8+x3DbHOJ+yrS78Pm4xigW4M=",
         "owner": "oxalica",
         "repo": "rust-overlay",
-        "rev": "1a9ddeb45c5751b800331363703641b84d1f41f0",
+        "rev": "f17186f52e82ec5cf40920b58eac63b78692ac7c",
         "type": "github"
       },
       "original": {
