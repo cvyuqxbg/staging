@@ -11,11 +11,11 @@
         "rust-overlay": "rust-overlay"
       },
       "locked": {
-        "lastModified": 1780345123,
-        "narHash": "sha256-dgQ6PHncEAgHewtSXDa6Q5rXS4JzDQYZYotNkVI83gs=",
+        "lastModified": 1780425273,
+        "narHash": "sha256-WFGHXiZkjQAwGNvFmJiNXDiSl1Ls2kZ/OJK36uKq+U8=",
         "ref": "refs/heads/main",
-        "rev": "27e520bcfee457cc6655eb0e90c19d416e132c60",
-        "revCount": 5311,
+        "rev": "34c499b1d0233878e94107f03c03b1e57f02d2cd",
+        "revCount": 5312,
         "type": "git",
         "url": "https://github.com/lonerOrz/nyx-loner.git"
       },
