@@ -1,8 +1,8 @@
 {
   inputs = {
     #nixpkgs.follows = "chaotic/nixpkgs";
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    chaotic.url = "git+https://github.com/lonerOrz/nyx-loner.git";
+    nixpkgs.url = "github:NixOS/nixpkgs/master";
+    chaotic.url = "github/chaotic-cx/nyx";
     # bad for cache:
     chaotic.inputs.nixpkgs.follows = "nixpkgs";
   };
@@ -65,6 +65,16 @@
               {
               }
               (lib.mkIf (system == "x86_64-linux") {
+                kernelss = (
+                  pkgs.symlinkJoin {
+                    name = "kernelss";
+                    paths = with pkgs; [
+                      linuxPackages_cachyos-gcc.kernel
+                    ];
+                  }
+                );
+              })
+              (lib.mkIf (false && system == "x86_64-linux") {
                 v3ssss = (
                   pkgs.symlinkJoin {
                     name = "v3ssss";
@@ -97,7 +107,12 @@
                     ];
                   }
                 );
-                inherit (pkgs.pkgsx86_64_v3) zotero localsend zulip gtk3;
+                inherit (pkgs.pkgsx86_64_v3)
+                  zotero
+                  localsend
+                  zulip
+                  gtk3
+                  ;
               })
             ];
           };
