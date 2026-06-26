@@ -63,6 +63,7 @@
               (lib.mkIf (pkgs.stdenv.isDarwin) {
               })
               {
+                inherit (pkgs) p7zip;
               }
               (lib.mkIf (system == "x86_64-linux") {
                 kernelss = (
