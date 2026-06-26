@@ -2,7 +2,8 @@
   inputs = {
     #nixpkgs.follows = "chaotic/nixpkgs";
     nixpkgs.url = "github:NixOS/nixpkgs/master";
-    chaotic.url = "github/chaotic-cx/nyx";
+    nixpkgs-next.url = "github:NixOS/nixpkgs/staging-next";
+    chaotic.url = "github:chaotic-cx/nyx";
     # bad for cache:
     chaotic.inputs.nixpkgs.follows = "nixpkgs";
   };
@@ -28,7 +29,6 @@
           "x86_64-linux"
           "aarch64-linux"
           "aarch64-darwin"
-          "x86_64-darwin"
         ];
         perSystem =
           args@{
@@ -48,6 +48,13 @@
                 ]
               );
             };
+            pkgs-next = import inputs.nixpkgs-next {
+              inherit system;
+              config.allowUnfree = true;
+              overlays = ([
+                inputs.chaotic.overlays.default
+              ]);
+            };
             pkgs-cuda = import inputs.nixpkgs {
               inherit system;
               config.allowUnfree = true;
@@ -63,7 +70,22 @@
               (lib.mkIf (pkgs.stdenv.isDarwin) {
               })
               {
-                inherit (pkgs) p7zip;
+                currentss = (
+                  pkgs.symlinkJoin {
+                    name = "currentss";
+                    paths = with pkgs; [
+                      p7zip
+                    ];
+                  }
+                );
+                nextss = (
+                  pkgs-next.symlinkJoin {
+                    name = "nextss";
+                    paths = with pkgs-next; [
+                      p7zip
+                    ];
+                  }
+                );
               }
               (lib.mkIf (system == "x86_64-linux") {
                 kernelss = (
