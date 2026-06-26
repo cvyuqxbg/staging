@@ -1,5 +1,5 @@
 # staging
-cache nix v3
+cache nix v3 or something newer
 
 
 ```
